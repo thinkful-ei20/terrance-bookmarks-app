@@ -15,12 +15,22 @@
   <div class="main-container">
     <header class="main-header" role="banner">
       <span class="far fa-bookmark fa-3x"></span>
-      <h1>Bookmarker</h1>
+      <h1>Bookmark</h1>
     </header>
 
     <section class="main-controls" role="region">
       <button class="add-bm-btn js-add-bm-btn">add bookmark</button>
-    </section>
+      <select class="min-rating-select" name="min_rating">
+        <option value="default_option">Minimum Rating</option>
+        <option value="5_stars">&bigstar;&bigstar;&bigstar;&bigstar;&bigstar;</option>
+        <option value="4_stars">&bigstar;&bigstar;&bigstar;&bigstar;</option>
+        <option value="3_stars">&bigstar;&bigstar;&bigstar;</option>
+        <option value="2_stars">&bigstar;&bigstar;</option>
+        <option value="1_stars">&bigstar;</option>
+      </select>
+
+      
+    </section>  
 
     <main role="main">
       <section class="bookmarks" role="region"></section>
