@@ -9,8 +9,26 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
   <link rel="stylesheet" href="styles/main.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 </head>
 <body>
+  <div class="main-container">
+    <header class="main-header" role="banner">
+      <span class="far fa-bookmark fa-3x"></span>
+      <h1>Bookmarker</h1>
+    </header>
+
+    <section class="main-controls" role="region">
+      <button class="add-bm-btn js-add-bm-btn">add bookmark</button>
+    </section>
+
+    <main role="main">
+      <section class="bookmarks" role="region"></section>
+    </main>
+
+    <footer class="main-footer" role="contentinfo"></footer>
+  
+  </div>
 
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
