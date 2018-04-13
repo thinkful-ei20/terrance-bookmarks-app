@@ -21,6 +21,7 @@ const store = (() => {
   return {
     items: [],
     error: null,
+    hideBMControls: true,
 
     setError,
     addItem,

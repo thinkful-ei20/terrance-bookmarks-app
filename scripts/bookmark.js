@@ -40,7 +40,43 @@ const bookmarkItems = (() => {
     return items.join('');
   };
 
+  const handleAddItemClicked = () => {
+    $('.js-add-bm-btn').click(() => {
+      store.hideBMControls = false;
+      render();
+    });
+  };
 
+  const handleSubmitItem = () => {
+    $('.js-add-bm-form').submit((event) => {
+      event.preventDefault();
+      store.hideBMControls = true;
+      render();
+    });
+  };
+
+  const handleCancelItemClicked = () => {
+    $('.js-cancel-bm-btn').click(() => {
+      store.hideBMControls = true;
+      render();
+    });
+  };
+
+  const render = () => {
+    if (store.hideBMControls) {
+      $('.js-add-bm-controls').hide();
+      console.log('true ran');
+    } 
+
+    if (!store.hideBMControls) {
+      console.log('false ran');
+      $('.js-add-bm-controls').show();
+    }
+
+  };
+
+  handleAddItemClicked();
+  handleSubmitItem();
+  render();
 
 })();
-

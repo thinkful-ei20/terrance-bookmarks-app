@@ -31,8 +31,8 @@
         </select>
       </div>
 
-      <div class="add-bm-controls">
-        <form action="index.html" method="post">
+      <div class="add-bm-controls js-add-bm-controls">
+        <form class="add-bm-form js-add-bm-form" action="index.html" method="post">
           <h2>Create A Bookmark:</h2>
           <input type="text" name="bm_title" id="js_bm_title" placeholder="title">
           <input type="text" name="bm_link" id="js_bm_link" placeholder="http://yourbookmark.com">
@@ -48,6 +48,7 @@
           <input type="radio" name="user_rating" id="js_1_star_rating">
           <label for="js_1_star_rating">&bigstar;</label>
           <button class="js-submit-bm-btn" type="submit">Add Item</button>
+          <button class="js-cancel-bm-btn">Cancel</button>
         </form>
       </div>
     </section>  
