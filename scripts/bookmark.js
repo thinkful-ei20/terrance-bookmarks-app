@@ -119,6 +119,23 @@ const bookmarkItems = (() => {
 
     const bookmarkItemsString = genItemsStr(store.items);
     $('.js-bm-list').html(bookmarkItemsString);
+
+    $('.js-min-rating-select').change(() => {
+      const selectedOp = $('.js-min-rating-select option:selected');
+
+      if (selectedOp.val() === '5_stars') {
+        console.log('function 5 worked');
+      } else if (selectedOp.val() === '4_stars') {
+        console.log('4 works');
+      } else if (selectedOp.val() === '3_stars') {
+        console.log('3 works');
+      } else if (selectedOp.val() === '2_stars') {
+        console.log('2 works');
+      } else {
+        console.log('1 works');
+      }
+    });
+    
   };
 
   handleAddItemClicked();
