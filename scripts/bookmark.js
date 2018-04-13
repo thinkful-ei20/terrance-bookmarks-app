@@ -1,6 +1,6 @@
 'use strict'; 
 
-/* global $, store*/
+/* global $, store, api */
 
 const bookmarkItems = (() => {
   const genError = (err) => {
@@ -43,6 +43,9 @@ const bookmarkItems = (() => {
   const handleAddItemClicked = () => {
     $('.js-add-bm-btn').click(() => {
       store.hideBMControls = false;
+      $('#js_bm_title').val('');
+      $('#js_bm_link').val('');
+      $('#js_bm_description').val('');
       render();
     });
   };
@@ -50,8 +53,20 @@ const bookmarkItems = (() => {
   const handleSubmitItem = () => {
     $('.js-add-bm-form').submit((event) => {
       event.preventDefault();
-      store.hideBMControls = true;
-      render();
+
+      const newItemTitle = $('#js_bm_title').val();
+      const newItemUrl = $('#js_bm_link').val();
+      api.createItem({title: newItemTitle, url: newItemUrl},
+        (newItem) => {
+          store.addItem(newItem);
+          store.hideBMControls = true;
+          render();
+        },
+        (err) => {
+          store.setError(err);
+          render();
+        }
+      );
     });
   };
 
@@ -59,6 +74,22 @@ const bookmarkItems = (() => {
     $('.js-cancel-bm-btn').click(() => {
       store.hideBMControls = true;
       render();
+    });
+  };
+
+  const getItemId = (item) => {
+    return $(item)
+      .closest('.js-item-element')
+      .data('item-id');
+  };
+
+  const handleDeleteItemClicked = () => {
+    $('.js-bm-list').on('click', '.js-delete-item-btn', event => {
+      const id = getItemId(event.currentTarget);
+      api.deleteItem(id, () => {
+        store.findAndDelete(id);
+        render();
+      });
     });
   };
 
@@ -73,10 +104,14 @@ const bookmarkItems = (() => {
       $('.js-add-bm-controls').show();
     }
 
+    const bookmarkItemsString = genItemsStr(store.items);
+    $('.js-bm-list').html(bookmarkItemsString);
   };
 
   handleAddItemClicked();
   handleSubmitItem();
+  handleCancelItemClicked();
+  handleDeleteItemClicked();
   render();
 
 })();
