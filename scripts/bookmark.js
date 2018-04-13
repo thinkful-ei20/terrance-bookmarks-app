@@ -20,10 +20,23 @@ const bookmarkItems = (() => {
   };
 
   const genItemElement = (item) => {
+    let itemRating = null;
+    if (item.rating === 5) {
+      itemRating = '&bigstar;&bigstar;&bigstar;&bigstar;&bigstar;';
+    } else if (item.rating === 4) {
+      itemRating = '&bigstar;&bigstar;&bigstar;&bigstar;';      
+    } else if (item.rating === 3) {
+      itemRating = '&bigstar;&bigstar;&bigstar;';      
+    } else if (item.rating === 2) {
+      itemRating = '&bigstar;&bigstar;';      
+    } else if (item.rating === 1) {
+      itemRating = '&bigstar;';      
+    }
+
     return `
     <li class="item-element js-item-element" data-item-id="${item.id}">
       <details>
-        <summary>${item.title} ${(item.rating ? item.rating + ' stars' : 'No Rating')}</summary>
+        <summary>${item.title} ${itemRating}</summary>
         <p>${(item.desc ? item.desc : 'No Description')}</p>
         <a href="${item.url}" target="_blank">Visit Site</a>
         <button class="delete-item-btn js-delete-item-btn">Remove Bookmark</button>
@@ -56,7 +69,9 @@ const bookmarkItems = (() => {
 
       const newItemTitle = $('#js_bm_title').val();
       const newItemUrl = $('#js_bm_link').val();
-      api.createItem({title: newItemTitle, url: newItemUrl},
+      const newItemRating = $('.add-bm-form input[type="radio"]:checked').val();
+      const newItemDescription = $('#js_bm_description').val();
+      api.createItem({title: newItemTitle, url: newItemUrl, rating: newItemRating, desc: newItemDescription},
         (newItem) => {
           store.addItem(newItem);
           store.hideBMControls = true;
@@ -96,11 +111,9 @@ const bookmarkItems = (() => {
   const render = () => {
     if (store.hideBMControls) {
       $('.js-add-bm-controls').hide();
-      console.log('true ran');
     } 
 
     if (!store.hideBMControls) {
-      console.log('false ran');
       $('.js-add-bm-controls').show();
     }
 
