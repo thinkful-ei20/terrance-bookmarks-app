@@ -7,7 +7,7 @@ const api = (() => {
 
   const getItems = (callback) => {
     $.getJSON(`${BASE_URL}/bookmarks`, callback);
-  }
+  };
 
   const createItem = (item, onSuccess, onError) => {
     const newItem = JSON.stringify(item);
@@ -19,11 +19,11 @@ const api = (() => {
       success: onSuccess,
       error: onError,
     });
-  }
+  };
 
   const deleteItem = (id, onSuccess, onError) => {
     $.ajax({
-      url: `${BASE_URL}/bookmarks/${id}`;
+      url: `${BASE_URL}/bookmarks/${id}`,
       method: 'DELETE',
       success: onSuccess,
       error: onError,
@@ -35,5 +35,5 @@ const api = (() => {
     createItem,
     deleteItem,
   };
-  
-}());
+
+})();

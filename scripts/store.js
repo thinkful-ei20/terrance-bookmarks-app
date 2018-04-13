@@ -1,30 +1,31 @@
 'use strict'; 
 
-/* global $ */
+const store = (() => {
 
-// const store = function() {
+  const setError = function(error) {
+    this.error = error;
+  };
 
-//   return {
-//     items: [],
-//     error: null,
-//     setError,
-//     addItem,
-//     findById,
-//     findAndDelete,
-//     renderState: {
-//       adding: true,
-//     }
-//   }
+  const addItem = function(item) {
+    this.items.push(item);
+  };
 
+  const findById = function(id) {
+    return this.items.find(item => item.id === id);
+  };
 
-// }
+  const findAndDelete = function(id) {
+    this.items = this.items.filter(item => item.id !== id);
+  };
 
-// function addItem() {
+  return {
+    items: [],
+    error: null,
 
-// }
+    setError,
+    addItem,
+    findById,
+    findAndDelete,
+  };
 
-// function render() {
-//   if (store.renderState.adding) {
-
-//   }
-// }
+})();
