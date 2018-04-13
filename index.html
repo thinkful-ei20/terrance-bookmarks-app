@@ -14,29 +14,55 @@
 <body>
   <div class="main-container">
     <header class="main-header" role="banner">
-      <span class="far fa-bookmark fa-3x"></span>
+      <span class="far fa-bookmark"></span>
       <h1>Bookmark</h1>
     </header>
 
     <section class="main-controls" role="region">
-      <button class="add-bm-btn js-add-bm-btn">add bookmark</button>
-      <select class="min-rating-select" name="min_rating">
-        <option value="default_option">Minimum Rating</option>
-        <option value="5_stars">&bigstar;&bigstar;&bigstar;&bigstar;&bigstar;</option>
-        <option value="4_stars">&bigstar;&bigstar;&bigstar;&bigstar;</option>
-        <option value="3_stars">&bigstar;&bigstar;&bigstar;</option>
-        <option value="2_stars">&bigstar;&bigstar;</option>
-        <option value="1_stars">&bigstar;</option>
-      </select>
+      <div class="default-controls">
+        <button class="add-bm-btn js-add-bm-btn">add bookmark</button>
+        <select class="min-rating-select" name="min_rating">
+          <option value="default_option">Minimum Rating</option>
+          <option value="5_stars">&bigstar;&bigstar;&bigstar;&bigstar;&bigstar;</option>
+          <option value="4_stars">&bigstar;&bigstar;&bigstar;&bigstar;</option>
+          <option value="3_stars">&bigstar;&bigstar;&bigstar;</option>
+          <option value="2_stars">&bigstar;&bigstar;</option>
+          <option value="1_stars">&bigstar;</option>
+        </select>
+      </div>
 
-      
+      <div class="add-bm-controls">
+        <form action="index.html" method="post">
+          <h2>Create A Bookmark:</h2>
+          <input type="text" name="bm_title" id="js_bm_title" placeholder="title">
+          <input type="text" name="bm_link" id="js_bm_link" placeholder="http://yourbookmark.com">
+          <textarea name="bm_description" id="js_bm_description" cols="30" rows="10" placeholder="Enter bookmark description here..."></textarea>
+          <input type="radio" name="user_rating" id="js_5_star_rating">
+          <label for="js_5_star_rating">&bigstar;&bigstar;&bigstar;&bigstar;&bigstar;</label>
+          <input type="radio" name="user_rating" id="js_4_star_rating">
+          <label for="js_4_star_rating">&bigstar;&bigstar;&bigstar;&bigstar;</label>
+          <input type="radio" name="user_rating" id="js_3_star_rating">
+          <label for="js_3_star_rating">&bigstar;&bigstar;&bigstar;</label>
+          <input type="radio" name="user_rating" id="js_2_star_rating">
+          <label for="js_2_star_rating">&bigstar;&bigstar;</label>
+          <input type="radio" name="user_rating" id="js_1_star_rating">
+          <label for="js_1_star_rating">&bigstar;</label>
+          <button class="js-submit-bm-btn" type="submit">Add Item</button>
+        </form>
+      </div>
     </section>  
 
     <main role="main">
-      <section class="bookmarks" role="region"></section>
+      <section class="bookmarks" role="region">
+        <ul class="js-bm-list">
+          <!-- Generated via JS -->
+        </ul>
+      </section>
     </main>
 
-    <footer class="main-footer" role="contentinfo"></footer>
+    <footer class="main-footer" role="contentinfo">
+      <p>Made with <i class="far fa-heart"></i> by Terrance Corley.</p>
+    </footer>
   
   </div>
 
