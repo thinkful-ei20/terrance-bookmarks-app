@@ -2,13 +2,11 @@
 
 /* global $, bookmarkItems, api, store,  */
 
-const main = () => {
+$(document).ready(function() {
   bookmarkItems.bindEventListeners();
   bookmarkItems.render();
   api.getItems(bookmarkItems => {
     bookmarkItems.forEach(bookmark => store.addItem(bookmark));
-    bookmarkItems.render();
+    bookmarkItems.render;
   });
-};
-
-$(main);
+});
