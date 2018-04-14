@@ -74,7 +74,7 @@ const bookmarkItems = (() => {
   };
 
   const handleCancelItemClicked = () => {
-    $('.js-cancel-bm-btn').click(() => {
+    $('.js-cancel-bm-btn').click((event) => {
       store.hideBMControls = true;
       render();
     });
@@ -106,13 +106,14 @@ const bookmarkItems = (() => {
   };
 
   const handleErrMessage = () => {
-    $('.error').on('click', '.error-button', (event) => {
+    $('.error').on('click', '.error-button', () => {
       store.setError('');
       render();
     });
   };
 
   const render = () => {
+
     store.errorMessage !== '' ? $('.error').html(genErr(`${store.errorMessage} <span class="err-exit">&times;</span>`)) : $('.error').html('');
 
     if (store.hideBMControls) {

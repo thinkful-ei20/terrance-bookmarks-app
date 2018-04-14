@@ -30,6 +30,8 @@ html {
 
 body {
   line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
+  background-color: #FEF9FF;
 }
 
 /***********************************
@@ -43,6 +45,10 @@ FLEX
 MAIN HEADER
 ***********************************/
 
+.main-header h1,
+.fa-bookmark {
+  color: #9F9FED;
+}
 
 
 
@@ -71,6 +77,13 @@ PAGE
 MAIN FOOTER
 ***********************************/
 
+.main-footer {
+  color: #9F9FED;
+}
+
+.fa-heart {
+  color: red;
+}
 
 
 /***********************************
