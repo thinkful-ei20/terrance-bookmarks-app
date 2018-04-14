@@ -50,6 +50,9 @@ MAIN HEADER
 MAIN CONTROLS
 ***********************************/
 
+.add-bm-controls {
+  display: none;
+}
 
 
 /***********************************
