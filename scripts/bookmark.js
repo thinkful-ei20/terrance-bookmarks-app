@@ -45,12 +45,12 @@ const bookmarkItems = (() => {
     `;
   };
 
-  const genItemsStr = () => {
-    const items = store.items.map((item) => {
+  const genItemsStr = (items) => {
+    let bmItems = items.map((item) => {
       return genItemElement(item);
     });
 
-    return items.join('');
+    return bmItems.join('');
   };
 
   const handleAddItemClicked = () => {
@@ -69,10 +69,11 @@ const bookmarkItems = (() => {
 
       const newItemTitle = $('#js_bm_title').val();
       const newItemUrl = $('#js_bm_link').val();
-      const newItemRating = $('.add-bm-form input[type="radio"]:checked').val();
+      const newItemRating = +$('.add-bm-form input[type="radio"]:checked').val();
       const newItemDescription = $('#js_bm_description').val();
       api.createItem({title: newItemTitle, url: newItemUrl, rating: newItemRating, desc: newItemDescription},
         (newItem) => {
+          console.log(typeof newItemRating);
           store.addItem(newItem);
           store.hideBMControls = true;
           render();
@@ -108,6 +109,15 @@ const bookmarkItems = (() => {
     });
   };
 
+  const handleMinRatingFilter = () => {
+    $('.js-min-rating-select').change(() => {
+      let selectedRatingVal = +$('.js-min-rating-select option:selected').val();
+      store.minRating = selectedRatingVal;
+
+      render();
+    });
+  };
+
   const render = () => {
     if (store.hideBMControls) {
       $('.js-add-bm-controls').hide();
@@ -117,24 +127,14 @@ const bookmarkItems = (() => {
       $('.js-add-bm-controls').show();
     }
 
-    const bookmarkItemsString = genItemsStr(store.items);
-    $('.js-bm-list').html(bookmarkItemsString);
-
-    $('.js-min-rating-select').change(() => {
-      const selectedOp = $('.js-min-rating-select option:selected');
-
-      if (selectedOp.val() === '5_stars') {
-        console.log('function 5 worked');
-      } else if (selectedOp.val() === '4_stars') {
-        console.log('4 works');
-      } else if (selectedOp.val() === '3_stars') {
-        console.log('3 works');
-      } else if (selectedOp.val() === '2_stars') {
-        console.log('2 works');
-      } else {
-        console.log('1 works');
-      }
-    });
+    if (typeof store.minRating === 'number') {
+      let items = store.items.filter(item => item.rating >= store.minRating);
+      const bookmarkItemsString = genItemsStr(items);
+      $('.js-bm-list').html(bookmarkItemsString);
+    } else {
+      const bookmarkItemsString = genItemsStr(store.items);
+      $('.js-bm-list').html(bookmarkItemsString);
+    }
     
   };
 
@@ -142,6 +142,7 @@ const bookmarkItems = (() => {
   handleSubmitItem();
   handleCancelItemClicked();
   handleDeleteItemClicked();
+  handleMinRatingFilter();
   render();
 
 })();
