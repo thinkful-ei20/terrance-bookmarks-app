@@ -1,9 +1,8 @@
 'use strict'; 
 
 const store = (() => {
-
-  const setError = function(error) {
-    this.error = error;
+  const setError = function (error) {
+    this.errorMessage = error;
   };
 
   const addItem = function(item) {
@@ -19,12 +18,12 @@ const store = (() => {
   };
 
   return {
+    setError,
+    errorMessage: '',
     items: [],
-    error: null,
     hideBMControls: true,
     minRating: null,
 
-    setError,
     addItem,
     findById,
     findAndDelete,

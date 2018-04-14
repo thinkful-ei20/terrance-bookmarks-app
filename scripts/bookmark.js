@@ -3,20 +3,8 @@
 /* global $, store, api */
 
 const bookmarkItems = (() => {
-  const genError = (err) => {
-    let message = '';
-    if (err.responseJSON && err.responseJSON.message) {
-      message = err.responseJSON.message;
-    } else {
-      message = `${err.code} Server Error`;
-    }
-
-    return `
-      <section class="error-content">
-        <button id="cancel-error">X</button>
-        <p>${message}</p>
-      </section>
-    `;
+  const genErr = (errorMessage) => {
+    return `<button type="button" class="error-button">${errorMessage}</button>`;
   };
 
   const genItemElement = (item) => {
@@ -73,13 +61,12 @@ const bookmarkItems = (() => {
       const newItemDescription = $('#js_bm_description').val();
       api.createItem({title: newItemTitle, url: newItemUrl, rating: newItemRating, desc: newItemDescription},
         (newItem) => {
-          console.log(typeof newItemRating);
           store.addItem(newItem);
           store.hideBMControls = true;
           render();
         },
         (err) => {
-          store.setError(err);
+          store.setError(err.responseJSON.message);
           render();
         }
       );
@@ -118,7 +105,16 @@ const bookmarkItems = (() => {
     });
   };
 
+  const handleErrMessage = () => {
+    $('.error').on('click', '.error-button', (event) => {
+      store.setError('');
+      render();
+    });
+  };
+
   const render = () => {
+    store.errorMessage !== '' ? $('.error').html(genErr(`${store.errorMessage} <span class="err-exit">&times;</span>`)) : $('.error').html('');
+
     if (store.hideBMControls) {
       $('.js-add-bm-controls').hide();
     } 
@@ -138,11 +134,18 @@ const bookmarkItems = (() => {
     
   };
 
-  handleAddItemClicked();
-  handleSubmitItem();
-  handleCancelItemClicked();
-  handleDeleteItemClicked();
-  handleMinRatingFilter();
-  render();
+  const bindEventListeners = () => {
+    handleErrMessage();
+    handleAddItemClicked();
+    handleSubmitItem();
+    handleCancelItemClicked();
+    handleDeleteItemClicked();
+    handleMinRatingFilter();
+  };
+
+  return {
+    render,
+    bindEventListeners,
+  };
 
 })();
