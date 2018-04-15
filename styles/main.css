@@ -32,6 +32,7 @@ body {
   line-height: 1.5;
   font-family: 'Roboto', sans-serif;
   background-color: #FEF9FF;
+  color: #333;
 }
 
 ul {
@@ -58,9 +59,15 @@ button {
   transition: all 0.2s ease-in-out;
 }
 
-button:hover {
+button:hover,
+.min-rating-select:hover {
   border: 3px solid #736CED;
   color: #736CED
+}
+
+button,
+select {
+  line-height: 1.5;
 }
 
 /***********************************
@@ -101,10 +108,10 @@ button.error-button {
   font-size: 0.8rem;
   background-color: tomato;
   border: 1px solid tomato;
+  padding: 0.4em 0.6em;
   color: #fff;
   letter-spacing: 1px;
   border-radius: 5px;
-  height: 40px;
 }
 
 .err-exit {
@@ -117,6 +124,18 @@ button.error-button {
 /***********************************
 4. MAIN CONTROLS
 ***********************************/
+
+.min-rating-select {
+  border-radius: 4px;
+  font-size: 1rem;
+  border: 3px solid #D4C1EC;
+  background-color: #FEF9FF;
+  padding: 0.6rem 0.8rem;
+  color: #9F9FED;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  height: 48px;
+}
 
 .add-bm-controls {
   display: none;
