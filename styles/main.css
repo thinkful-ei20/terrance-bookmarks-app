@@ -1,17 +1,17 @@
 /*
   Table of Contents
     1. General
-    2. Main Header
-    3. Section
-    4. Section
+    2. Flex
+    3. Main Header
+    4. Main Controls
     5. Section
-    6. Main Footer
-    7. Colors & Borders
+    6. Section
+    7. Main Footer
     8. Media Queries
 */
 
 /***********************************
-GENERAL
+1. GENERAL
 ***********************************/
 
 *,
@@ -34,26 +34,88 @@ body {
   background-color: #FEF9FF;
 }
 
-/***********************************
-FLEX
-***********************************/
+ul {
+  list-style: none;
+}
 
+a {
+  text-decoration: none;
+}
 
+.main-container {
+  margin: 0;
+  padding: 0 4%;
+}
 
-
-/***********************************
-MAIN HEADER
-***********************************/
-
-.main-header h1,
-.fa-bookmark {
+button {
+  border-radius: 4px;
+  font-size: 1rem;
+  border: 3px solid #D4C1EC;
+  background-color: #FEF9FF;
+  padding: 0.6rem 0.8rem;
   color: #9F9FED;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  border: 3px solid #736CED;
+  color: #736CED
+}
+
+/***********************************
+2. FLEX
+***********************************/
+
+.logo {
+  display: flex;
+  justify-content: center;
 }
 
 
 
 /***********************************
-MAIN CONTROLS
+3. MAIN HEADER
+***********************************/
+
+.main-header h1,
+.fa-bookmark {
+  color: #736CED;
+}
+
+.main-header {
+  padding: 2em 1.7em;
+  font-size: 1.3rem;
+}
+
+.main-header h1 {
+  margin: 0;
+}
+
+.error,
+.default-controls {
+  text-align: center;
+}
+
+button.error-button {
+  font-size: 0.8rem;
+  background-color: tomato;
+  border: 1px solid tomato;
+  color: #fff;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.err-exit {
+  font-size: 2em;
+  margin-left: 0.25em;
+}
+
+
+
+/***********************************
+4. MAIN CONTROLS
 ***********************************/
 
 .add-bm-controls {
@@ -62,23 +124,24 @@ MAIN CONTROLS
 
 
 /***********************************
-PAGE
+5. SECTION
 ***********************************/
 
 
 
 /***********************************
-PAGE
+6. SECTION
 ***********************************/
 
 
 
 /***********************************
-MAIN FOOTER
+7. MAIN FOOTER
 ***********************************/
 
 .main-footer {
   color: #9F9FED;
+  text-align: center;
 }
 
 .fa-heart {
@@ -86,12 +149,7 @@ MAIN FOOTER
 }
 
 
-/***********************************
-COLORS & BORDERS
-***********************************/
-
-
 
 /***********************************
-MEDIA QUERIES
+8. MEDIA QUERIES
 ***********************************/
