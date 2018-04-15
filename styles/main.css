@@ -60,7 +60,9 @@ button {
 }
 
 button:hover,
-.min-rating-select:hover {
+.min-rating-select:hover,
+button:focus,
+.min-rating-select:focus {
   border: 3px solid #736CED;
   color: #736CED
 }
@@ -182,9 +184,51 @@ button.error-button {
 
 
 /***********************************
-6. SECTION
+6. BM LIST
 ***********************************/
 
+.bookmarks {
+  font-size: 1.1rem;
+}
+
+::-webkit-details-marker { 
+  display: none;
+}
+
+.bm-list {
+  padding: 0
+}
+
+.bm-list li {
+  border: 2px solid #F2DFD7;
+  border-radius: 4px;
+  padding: 0.5em;
+  color: #9F9FED;
+  transition: all 0.2s ease-in-out;
+}
+
+.bm-list li a {
+  border-bottom: 2px solid #FEF9FF;
+  transition: all 0.2s ease-in-out;
+}
+
+.bm-list li a:hover {
+  border-bottom: 2px solid #736CED;
+}
+
+.bm-list li:hover,
+.bm-list li:focus {
+  border: 2px solid #736CED;
+  color: #736CED;
+}
+
+.bm-list li:not(:first-child) {
+  margin-top: 1em;
+}
+
+.delete-item-btn {
+  margin-left: 4em;
+}
 
 
 /***********************************
