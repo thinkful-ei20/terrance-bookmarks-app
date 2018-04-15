@@ -249,3 +249,23 @@ button.error-button {
 /***********************************
 8. MEDIA QUERIES
 ***********************************/
+
+@media screen and (min-width: 40em) {
+
+  .main-container {
+    max-width: 940px;
+    margin: 0 auto;
+  }
+
+  :root {
+    font-size: 1.2em;
+  }
+
+  .min-rating-select {
+    height: 57px;
+  }
+
+  .add-bm-form button {
+   
+  }
+}
