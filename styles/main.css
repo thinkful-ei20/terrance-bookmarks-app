@@ -74,9 +74,14 @@ select {
 2. FLEX
 ***********************************/
 
-.logo {
+.logo,
+.add-bm-form {
   display: flex;
   justify-content: center;
+}
+
+.add-bm-form {
+  flex-direction: column;
 }
 
 
@@ -143,8 +148,36 @@ button.error-button {
 
 
 /***********************************
-5. SECTION
+5. FORM
 ***********************************/
+
+.add-bm-controls {
+  font-size: 1.125rem;
+}
+
+.add-bm-form input,
+.add-bm-form textarea {
+  padding: 0.6em 0.8em;
+  color: #333;
+}
+
+.form-heading {
+  font-size: 1.5em;
+  color: #736CED;
+}
+
+.url-input,
+.input-wrap {
+  margin: 0.6em 0;
+}
+
+.input-wrap {
+  text-align: center;
+}
+
+.submit-bm-btn {
+  margin-bottom: 0.6em;
+}
 
 
 

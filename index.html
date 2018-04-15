@@ -37,21 +37,23 @@
 
       <div class="add-bm-controls js-add-bm-controls">
         <form class="add-bm-form js-add-bm-form" action="index.html" method="post">
-          <h2>Create A Bookmark:</h2>
-          <input type="text" name="bm_title" id="js_bm_title" placeholder="title">
-          <input type="text" name="bm_link" id="js_bm_link" placeholder="Copy/paste your bookmark url here.">
+          <h2 class="form-heading">Create A Bookmark:</h2>
+          <input type="text" name="bm_title" id="js_bm_title" placeholder="Title">
+          <input type="text" name="bm_link" id="js_bm_link" placeholder="Copy/paste your bookmark url here." class="url-input">
           <textarea name="bm_description" id="js_bm_description" cols="30" rows="10" placeholder="Enter bookmark description here..."></textarea>
-          <input type="radio" name="user_rating" id="js_5_star_rating" value="5" checked>
-          <label for="js_5_star_rating">&bigstar;&bigstar;&bigstar;&bigstar;&bigstar;</label>
-          <input type="radio" name="user_rating" id="js_4_star_rating" value="4">
-          <label for="js_4_star_rating">&bigstar;&bigstar;&bigstar;&bigstar;</label>
-          <input type="radio" name="user_rating" id="js_3_star_rating" value="3">
-          <label for="js_3_star_rating">&bigstar;&bigstar;&bigstar;</label>
-          <input type="radio" name="user_rating" id="js_2_star_rating" value="2">
-          <label for="js_2_star_rating">&bigstar;&bigstar;</label>
-          <input type="radio" name="user_rating" id="js_1_star_rating" value="1">
-          <label for="js_1_star_rating">&bigstar;</label>
-          <button class="js-submit-bm-btn" type="submit">Add Item</button>
+          <div class="input-wrap">
+            <input type="radio" name="user_rating" id="js_5_star_rating" value="5" checked>
+            <label for="js_5_star_rating">&bigstar;&bigstar;&bigstar;&bigstar;&bigstar;</label>
+            <input type="radio" name="user_rating" id="js_4_star_rating" value="4">
+            <label for="js_4_star_rating">&bigstar;&bigstar;&bigstar;&bigstar;</label>
+            <input type="radio" name="user_rating" id="js_3_star_rating" value="3">
+            <label for="js_3_star_rating">&bigstar;&bigstar;&bigstar;</label>
+            <input type="radio" name="user_rating" id="js_2_star_rating" value="2">
+            <label for="js_2_star_rating">&bigstar;&bigstar;</label>
+            <input type="radio" name="user_rating" id="js_1_star_rating" value="1">
+            <label for="js_1_star_rating">&bigstar;</label>
+          </div>
+          <button class="js-submit-bm-btn submit-bm-btn" type="submit">Add Item</button>
           <button class="js-cancel-bm-btn">Cancel</button>
         </form>
       </div>
