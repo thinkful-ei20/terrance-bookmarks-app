@@ -5,8 +5,9 @@
 $(document).ready(function() {
   bookmarkItems.bindEventListeners();
   bookmarkItems.render();
-  api.getItems(bookmarkItems => {
-    bookmarkItems.forEach(bookmark => store.addItem(bookmark));
-    bookmarkItems.render;
+  
+  api.getItems((items) => {
+    items.forEach((item) => store.addItem(item));
+    bookmarkItems.render();
   });
 });
